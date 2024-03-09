@@ -2,6 +2,6 @@
 {
   public  interface IPushButton
     {
-        void PushButton();
+        void PushButton(IMoveable m);
     }
 }

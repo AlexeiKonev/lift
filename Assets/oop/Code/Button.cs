@@ -6,9 +6,10 @@ namespace oop
     {
         public int id = 9;
 
-        public virtual void PushButton()
+        public virtual void PushButton(IMoveable m)
         {
             Debug.Log("default Button");
+            m.Move();
         }
     }
 }

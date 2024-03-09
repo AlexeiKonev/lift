@@ -6,6 +6,10 @@ namespace oop
 {
     public class Main : MonoBehaviour
     {
+       public static Main Instance;
+
+        public Animator anim; 
+
         const string open  = "OpenDoor";
         const string close  = "CloseDoor";
         const string level = "Level";
@@ -16,31 +20,38 @@ namespace oop
             IPushButton levelButton = new ButtonLevel();
             IPushButton stopButton = new ButtonStop();
 
+            IMoveable move = new DoorBehavior();
+
         void Start()
         {
-           
-         
+
+            if (Instance == null)
+            {
+            Instance = this;
+            }
+
+            Instance.anim =GameObject.Find("Lift").GetComponent<Animator>();
         }
         public void Push( string button)
         {
 
                 if (button == open)
             {
-                openDoor.PushButton();
+                openDoor.PushButton(move);
             }
                if (button == close)
             {
-                closeDoor.PushButton();
+                closeDoor.PushButton(move);
             }
 
                 if (button == level)
             {
-                levelButton.PushButton();
+                levelButton.PushButton(move);
             }
 
               if (button == stop)
             {
-                stopButton.PushButton();
+                stopButton.PushButton(move);
             }
 
            
