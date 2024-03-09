@@ -9,29 +9,33 @@ namespace oop
 {
     public class DoorBehavior : IMoveable
     {
-        //public  Animator anim;
-        bool doorIsOpen;
+         
+        bool doorIsOpen ;
         public void Move()
         {
             Debug.Log("Move");
+
             if (doorIsOpen)
             {
                 CloseDoor();
-                doorIsOpen = false;
+              
             }
-            else
+           else if (!doorIsOpen)
             {
                 OpenDoor();
-                doorIsOpen = true;
+               
             }
         }
         private void CloseDoor()
         {
-            Main.Instance.anim.SetInteger("state", 1);
+            Main.Instance.anim.SetBool("door", false);
+            doorIsOpen = false;
         }
         private void OpenDoor()
         {
-            Main.Instance.anim.SetInteger("state", 0);
+            //Main.Instance.anim.SetInteger("state", 2);
+            Main.Instance.anim.SetBool("door", true);
+            doorIsOpen = true;
         }
     }
 }

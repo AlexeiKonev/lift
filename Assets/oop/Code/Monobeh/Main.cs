@@ -6,7 +6,7 @@ namespace oop
 {
     public class Main : MonoBehaviour
     {
-       public static Main Instance;
+        public static Main Instance;
 
         public Animator anim; 
 
@@ -20,7 +20,8 @@ namespace oop
             IPushButton levelButton = new ButtonLevel();
             IPushButton stopButton = new ButtonStop();
 
-            IMoveable move = new DoorBehavior();
+            IMoveable moveDoor = new DoorBehavior();
+            IMoveable moveLift = new LiftBehavior();
 
         void Start()
         {
@@ -30,28 +31,28 @@ namespace oop
             Instance = this;
             }
 
-            Instance.anim =GameObject.Find("Lift").GetComponent<Animator>();
+            Instance.anim = GameObject.Find("Lift").GetComponent<Animator>();
         }
         public void Push( string button)
         {
 
                 if (button == open)
             {
-                openDoor.PushButton(move);
+                openDoor.PushButton(moveDoor);
             }
                if (button == close)
             {
-                closeDoor.PushButton(move);
+                closeDoor.PushButton(moveDoor);
             }
 
                 if (button == level)
             {
-                levelButton.PushButton(move);
+                levelButton.PushButton(moveLift);
             }
 
               if (button == stop)
             {
-                stopButton.PushButton(move);
+                stopButton.PushButton(moveLift);
             }
 
            

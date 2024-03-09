@@ -1,6 +1,6 @@
 ﻿namespace oop
 {
-  public  interface IPushButton
+    public interface IPushButton
     {
         void PushButton(IMoveable m);
     }
