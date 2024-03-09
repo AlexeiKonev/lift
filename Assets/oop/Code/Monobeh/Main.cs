@@ -13,6 +13,7 @@ namespace oop
             buttons.Add(new ButtonStop());
             buttons.Add(new ButtonLevel());
             buttons.Add(new ButtonOpenDoor());
+            buttons.Add(new ButtonCloseDoor());
 
          
         }
