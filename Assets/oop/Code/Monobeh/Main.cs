@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace oop
 {
-    public class Main : MonoBehaviour
+    public partial class Main : MonoBehaviour
     {
         public static Main Instance;
 
@@ -20,7 +20,8 @@ namespace oop
             IPushButton levelButton = new ButtonLevel();
             IPushButton stopButton = new ButtonStop();
 
-            IMoveable moveDoor = new DoorBehavior();
+            IMoveable moveOpenDoor = new DoorOpenBehavior();
+            IMoveable moveCloseDoor = new DoorCloseBehavior();
             IMoveable moveLift = new LiftBehavior();
 
         void Start()
@@ -38,11 +39,11 @@ namespace oop
 
                 if (button == open)
             {
-                openDoor.PushButton(moveDoor);
+                openDoor.PushButton(moveOpenDoor);
             }
                if (button == close)
             {
-                closeDoor.PushButton(moveDoor);
+                closeDoor.PushButton(moveCloseDoor);
             }
 
                 if (button == level)
